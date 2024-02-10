@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let bottomPos = 0;
 
     document.getElementById('yessir').addEventListener('click', () => {
-        alert('Что вершит судьбу человечества в этом мире? Некое незримое существо или закон, подобно длани господней, парящей над миром? По крайней мере, истинно то, что человек не властен даже над своей волей');
+        alert('Хороший выбор!');
         window.open('https://instagram.com/parziwal', '_blank');
     });
 
