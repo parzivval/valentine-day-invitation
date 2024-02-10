@@ -1,20 +1,19 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let leftPos = 0;
-    let bottomPos = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.querySelector('body');
 
-    document.getElementById('yessir').addEventListener('click', () => {
-        alert('Что вершит судьбу человечества в этом мире? Некое незримое существо или закон, подобно длани господней, парящей над миром? По крайней мере, истинно то, что человек не властен даже над своей волей');
-        window.open('https://instagram.com/parziwal', '_blank');
-    });
+    for (let i = 0; i < 50; i++) { // Creates 50 hearts
+        let heart = document.createElement('div');
+        heart.textContent = '❤';
+        heart.style.position = 'absolute';
+        heart.style.color = 'pink';
+        heart.style.fontSize = `${Math.random() * 24 + 10}px`; // Between 10px to 34px
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.animationDuration = `${Math.random() * 5 + 5}s`; // Between 5 to 10 seconds
+        heart.style.animationDelay = `${Math.random() * 5}s`;
+        heart.style.zIndex = -1;
+        heart.style.setProperty('--direction', Math.random() < 0.5 ? -1 : 1);
 
-    function moveButton() {
-        leftPos = Math.floor(Math.random() * (window.innerWidth - document.getElementById('nooo').offsetWidth));
-        bottomPos = Math.floor(Math.random() * (window.innerHeight - document.getElementById('nooo').offsetHeight));
-        document.getElementById('nooo').style.position = "absolute";
-        document.getElementById('nooo').style.left = leftPos + "px";
-        document.getElementById('nooo').style.top = bottomPos + "px";
+        container.appendChild(heart);
+        heart.className = 'heart';
     }
-
-    document.getElementById('nooo').addEventListener('mouseover', moveButton);
-    document.getElementById('nooo').addEventListener('click', moveButton);
 });
