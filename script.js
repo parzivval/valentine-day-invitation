@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const container = document.querySelector('body');
 
-    for (let i = 0; i < 50; i++) { // Creates 50 hearts
+    // Create flying hearts
+    for (let i = 0; i < 50; i++) {
         let heart = document.createElement('div');
         heart.textContent = '❤';
         heart.style.position = 'absolute';
@@ -15,5 +16,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
         container.appendChild(heart);
         heart.className = 'heart';
+    }
+
+    // "No" button avoidance feature
+    let leftPos = 0;
+    let bottomPos = 0;
+
+    document.getElementById('yessir').addEventListener('click', () => {
+        alert('Что вершит судьбу человечества в этом мире? Некое незримое существо или закон, подобно длани господней, парящей над миром? По крайней мере, истинно то, что человек не властен даже над своей волей');
+        window.open('https://instagram.com/parziwal', '_blank');
+    });
+
+    const noButton = document.getElementById('nooo');
+    noButton.addEventListener('mouseover', moveButton);
+    noButton.addEventListener('click', moveButton);
+
+    function moveButton() {
+        leftPos = Math.random() * (window.innerWidth - noButton.offsetWidth);
+        bottomPos = Math.random() * (window.innerHeight - noButton.offsetHeight);
+        noButton.style.position = 'absolute';
+        noButton.style.left = leftPos + 'px';
+        noButton.style.top = bottomPos + 'px';
     }
 });
