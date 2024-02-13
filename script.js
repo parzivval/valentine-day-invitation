@@ -23,16 +23,25 @@ noButton.addEventListener('touchstart', moveButton, {passive: true});
 function createHeart() {
     const heart = document.createElement('div');
     heart.className = 'heart';
-    heart.textContent = '🤍';
+    heart.textContent = '🤍'; // Using the heart emoji
+    // Randomly position hearts at the start
     heart.style.left = `${Math.random() * 100}%`;
-    heart.style.fontSize = `${Math.random() * 20 + 10}px`;
-    heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
-    heart.style.setProperty('--random', Math.random().toString());
-    document.querySelector('.hearts-container').appendChild(heart);
+    // Randomize the size of the hearts
+    heart.style.fontSize = `${Math.random() * (30 - 10) + 10}px`; // Sizes between 10px and 30px
+    // Randomize the animation duration to make the movement vary
+    heart.style.animationDuration = `${Math.random() * (5 - 2) + 2}s`; // Durations between 2s and 5s
+    // Start animation at a random delay to avoid a uniform flow
+    heart.style.animationDelay = `${Math.random() * 2}s`;
+    // Adjust the sideways movement to ensure hearts float more naturally
+    heart.style.transform = `translateX(${Math.random() * (50 - -50) + -50}%)`; // Starts at random X positions
+    document.body.appendChild(heart);
 
-    heart.addEventListener('animationend', function() {
+    // Remove heart after it finishes floating to avoid DOM overload
+    setTimeout(() => {
         heart.remove();
-    });
+    }, 5000); // Adjust based on the longest possible animation duration
 }
 
+// Create a new heart every 300 milliseconds
 setInterval(createHeart, 300);
+
