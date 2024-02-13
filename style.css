@@ -78,10 +78,7 @@ p {
     z-index: 0;
 }
 
-.heart {
-    position: absolute;
-    color: pink;
-}
+
 
 .content {
     position: relative;
@@ -90,14 +87,24 @@ p {
 
 @keyframes float {
     0% {
-        transform: translateY(100%) translateX(0);
+        transform: translateX(0) translateY(100%);
         opacity: 1;
     }
     100% {
-        transform: translateY(-100vh) translateX(calc(-50px + 100px * var(--random)));
+        transform: translateX(20vw) translateY(-100vh);
         opacity: 0;
     }
 }
+
+.heart {
+    position: absolute;
+    bottom: -100px;
+    color: pink;
+    animation: float linear infinite;
+    opacity: 0; /* Start fully transparent */
+    font-size: 24px; /* Adjust size as needed */
+}
+
 
 @keyframes fadeOutIn {
   0% {
