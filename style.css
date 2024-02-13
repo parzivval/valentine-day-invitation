@@ -6,7 +6,7 @@
 
 body {
     font-family: "Arial", sans-serif;
-    background-color: deepblue;
+    background-color: deepskyblue; /* Corrected color */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,23 +16,21 @@ body {
     min-height: 100vh;
     position: relative;
     overflow: hidden;
-    padding: 20px; /* Ensure there's some padding */
+    padding: 20px;
 }
-
 
 .image, .btns button {
-    max-width: 90%; /* Ensure these elements fit within small screens */
-    box-sizing: border-box; /* Make sure padding and borders are included in the element's total width and height */
+    max-width: 90%;
+    box-sizing: border-box;
 }
 
-/* Add media queries for specific adjustments on smaller screens */
 @media (max-width: 600px) {
     h1 {
-        font-size: 20px; /* Smaller text on small screens */
+        font-size: 20px;
     }
 
     .btns button {
-        padding: 8px 16px; /* Adjust button size for smaller screens */
+        padding: 8px 16px;
     }
 }
 
@@ -58,7 +56,7 @@ h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.3s ease; /* Faster transition for transform property */
+    transition: transform 0.3s ease;
 }
 
 #nooo:hover, #yessir:hover {
@@ -69,12 +67,6 @@ p {
     margin-top: 20px;
 }
 
-.heart {
-    position: absolute;
-    bottom: -100px; /* Start just out of view */
-    color: pink;
-    animation: fly 10s linear infinite;
-}
 .hearts-container {
     position: absolute;
     top: 0;
@@ -82,8 +74,8 @@ p {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    pointer-events: none; /* Allows clicks to pass through */
-    z-index: 0; /* Keeps behind content */
+    pointer-events: none;
+    z-index: 0;
 }
 
 .heart {
@@ -93,8 +85,9 @@ p {
 
 .content {
     position: relative;
-    z-index: 1; /* Ensures content is above the hearts */
+    z-index: 1;
 }
+
 @keyframes float {
     0% {
         transform: translateY(100%) translateX(0);
@@ -106,16 +99,6 @@ p {
     }
 }
 
-@keyframes fly {
-    0% {
-        transform: translateY(100%) translateX(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-150%) translateX(calc(-100px + (200px * var(--direction))));
-        opacity: 0;
-    }
-}
 @keyframes fadeOutIn {
   0% {
     opacity: 1;
@@ -128,10 +111,14 @@ p {
   }
 }
 
-/* Apply this class to the h1 when its text changes */
 .text-change-animation {
   animation: fadeOutIn 1s ease;
 }
+
+.image-change-animation {
+  animation: fadeScaleIn 1s ease;
+}
+
 @keyframes fadeScaleIn {
   0% {
     opacity: 0;
@@ -141,9 +128,4 @@ p {
     opacity: 1;
     transform: scale(1);
   }
-}
-
-/* Apply this class to the .image div when the image changes */
-.image-change-animation {
-  animation: fadeScaleIn 1s ease;
 }
