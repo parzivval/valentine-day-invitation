@@ -17,6 +17,25 @@ document.querySelectorAll('.image-change-animation, .text-change-animation').for
 });
 
 const noButton = document.getElementById('nooo');
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = '🤍'; // Heart emoji
+    heart.style.left = `${Math.random() * 100}%`; // Random horizontal start position
+    heart.style.fontSize = `${Math.random() * 20 + 10}px`; // Random size
+    heart.style.animationDuration = `${Math.random() * 3 + 2}s`; // Random animation duration
+    heart.style.animationName = 'float';
+    document.querySelector('.hearts-container').appendChild(heart);
+
+    // Remove heart after it floats away
+    heart.addEventListener('animationend', () => {
+        heart.remove();
+    });
+}
+
+// Create a new heart every few seconds
+setInterval(createHeart, 300);
+
 
 function moveButton() {
     const xMove = Math.floor(Math.random() * (100 - (-100) + 1)) + (-100);
