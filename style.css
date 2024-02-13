@@ -27,10 +27,10 @@ h1 {
 .image {
     width: 300px;
     height: 300px;
-    background-image: url("./img/cutegif.gif");
+    background-image: url("./img/forever-valentine-love.gif");
     background-position: center;
     background-size: cover;
-    border-radius: 50%;
+    border-radius: 70%;
     margin: 20px 0;
 }
 
@@ -40,7 +40,7 @@ h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: transform 0.3s ease; /* Faster transition for transform property */
 }
 
 #nooo:hover, #yessir:hover {
@@ -67,4 +67,35 @@ p {
         transform: translateY(-150%) translateX(calc(-100px + (200px * var(--direction))));
         opacity: 0;
     }
+}
+@keyframes fadeOutIn {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Apply this class to the h1 when its text changes */
+.text-change-animation {
+  animation: fadeOutIn 1s ease;
+}
+@keyframes fadeScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Apply this class to the .image div when the image changes */
+.image-change-animation {
+  animation: fadeScaleIn 1s ease;
 }
