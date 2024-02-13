@@ -2,7 +2,7 @@ document.getElementById('yessir').addEventListener('click', () => {
     const imageDiv = document.querySelector('.image');
     const header = document.querySelector('h1');
 
-    imageDiv.style.backgroundImage = "url('./img/valentine.JPG')";
+    imageDiv.style.backgroundImage = "url('./img/val.png')";
     imageDiv.classList.add('image-change-animation');
     header.textContent = "You had no options🤍";
     header.classList.add('text-change-animation');
