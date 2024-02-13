@@ -1,29 +1,30 @@
+// Your existing JavaScript setup for changing the image and text on 'yessir' click
 document.getElementById('yessir').addEventListener('click', () => {
-    // Get the elements
     const imageDiv = document.querySelector('.image');
     const header = document.querySelector('h1');
 
-    // Update the image with animation
     imageDiv.style.backgroundImage = "url('./img/lovegif.gif')";
     imageDiv.classList.add('image-change-animation');
-
-    // Change the h1 text with animation
-    header.textContent = "Я не сомневался в твоем правильном выборе🤍";
+    header.textContent = "You had no options🤍";
     header.classList.add('text-change-animation');
 });
 
-// Optional: Remove the animation class after it's done to reset the state
-document.getElementById('yessir').addEventListener('animationend', () => {
-  document.querySelector('h1').classList.remove('text-change-animation');
-  document.querySelector('.image').classList.remove('image-change-animation');
+// Attach animationend listeners directly to elements being animated
+document.querySelectorAll('.image-change-animation, .text-change-animation').forEach(el => {
+    el.addEventListener('animationend', () => {
+        el.classList.remove('image-change-animation', 'text-change-animation');
+    });
 });
 
+const noButton = document.getElementById('nooo');
 
-document.getElementById('nooo').addEventListener('mouseover', () => {
-    // Increase the range for further movement
+function moveButton() {
     const xMove = Math.floor(Math.random() * (100 - (-100) + 1)) + (-100);
     const yMove = Math.floor(Math.random() * (100 - (-100) + 1)) + (-100);
 
-    // Use transform for smoother and faster animation
-    document.getElementById('nooo').style.transform = `translate(${xMove}px, ${yMove}px)`;
-});
+    noButton.style.transform = `translate(${xMove}px, ${yMove}px)`;
+}
+
+// Apply moveButton for both mouseover and touchstart events
+noButton.addEventListener('mouseover', moveButton);
+noButton.addEventListener('touchstart', moveButton, {passive: true});
