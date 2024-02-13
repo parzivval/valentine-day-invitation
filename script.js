@@ -11,8 +11,8 @@ document.getElementById('yessir').addEventListener('click', () => {
 const noButton = document.getElementById('nooo');
 
 function moveButton() {
-    const xMove = Math.floor(Math.random() * (window.innerWidth / 10)) - (window.innerWidth / 20);
-    const yMove = Math.floor(Math.random() * (window.innerHeight / 10)) - (window.innerHeight / 20);
+    const xMove = Math.floor(Math.random() * (100 - (-100) + 1)) + (-100);
+    const yMove = Math.floor(Math.random() * (100 - (-100) + 1)) + (-100);
 
     noButton.style.transform = `translate(${xMove}px, ${yMove}px)`;
 }
